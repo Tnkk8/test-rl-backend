@@ -28,9 +28,11 @@ export class CategoryService {
     return this.categoryRepository.save(category);
   }
   findAllCategory(): Promise<Category[]> {
+    console.log('xxxxxxxxxxx');
     return this.categoryRepository.find({
       order: { id: 'ASC' },
-      relations: { menus: true },
+      // relations: { menus: true, attributes: true },
+      relations: ['menus', 'attributes.attribute'],
     });
   }
   findCategoryById(id: number): Promise<Category> {

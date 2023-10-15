@@ -34,8 +34,8 @@ export class Menu {
 
   @UpdateDateColumn({ nullable: true })
   updated_at: Date;
-
-  @ManyToOne(() => Category, { nullable: true })
+  //Join Table
+  @ManyToOne(() => Category)
   @JoinColumn({ name: 'category_id' })
   category: Category;
 }
